@@ -4,44 +4,41 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
-import com.example.kotlintemplate.ui.theme.KotlinTemplateTheme
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import androidx.navigation.toRoute
+import com.example.kotlintemplate.route.Route
+import com.example.kotlintemplate.screen.DetailScreen
+import com.example.kotlintemplate.screen.HomeScreen
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            KotlinTemplateTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(
-                        name = "Android",
-                        modifier = Modifier.padding(innerPadding)
+            val navController = rememberNavController()
+            NavHost(
+                navController = navController,
+                startDestination = Route.Home
+            ) {
+                composable<Route.Home> {
+                    HomeScreen(
+                        onClickDetail = {
+                            navController.navigate(Route.Detail(id = 1))
+                        }
+                    )
+                }
+                composable<Route.Detail> {
+                    val detail: Route.Detail = it.toRoute()
+                    DetailScreen(
+                        id = detail.id,
+                        onBackClick = {
+                            navController.navigateUp()
+                        }
                     )
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    KotlinTemplateTheme {
-        Greeting("Android")
     }
 }
