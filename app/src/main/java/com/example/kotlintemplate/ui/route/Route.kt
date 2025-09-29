@@ -1,4 +1,4 @@
-package com.example.kotlintemplate.route
+package com.example.kotlintemplate.ui.route
 
 import kotlinx.serialization.Serializable
 
@@ -10,4 +10,7 @@ class Route {
     data class Detail(
         val id: Int
     )
+
+    @Serializable
+    object Rakuten
 }

@@ -1,4 +1,4 @@
-package com.example.kotlintemplate.screen
+package com.example.kotlintemplate.ui.screen
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -19,7 +19,10 @@ import androidx.compose.ui.unit.sp
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun HomeScreen(onClickDetail: () -> Unit) {
+fun HomeScreen(
+    onClickDetail: () -> Unit,
+    onClickRakuten: () -> Unit
+) {
     Scaffold(
         topBar = {
             CenterAlignedTopAppBar(
@@ -47,6 +50,9 @@ fun HomeScreen(onClickDetail: () -> Unit) {
             Button(onClick = onClickDetail) {
                 Text("詳細画面遷移")
             }
+            Button(onClick = onClickRakuten) {
+                Text("楽天画面遷移")
+            }
         }
     }
 }
@@ -54,5 +60,8 @@ fun HomeScreen(onClickDetail: () -> Unit) {
 @Preview(showBackground = true)
 @Composable
 fun HomeScreenPreview() {
-    HomeScreen(onClickDetail = {})
+    HomeScreen(
+        onClickDetail = {},
+        onClickRakuten = {}
+    )
 }

@@ -8,9 +8,13 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
-import com.example.kotlintemplate.route.Route
-import com.example.kotlintemplate.screen.DetailScreen
-import com.example.kotlintemplate.screen.HomeScreen
+import com.example.kotlintemplate.data.api.ApiClient
+import com.example.kotlintemplate.data.api.ApiRepository
+import com.example.kotlintemplate.ui.route.Route
+import com.example.kotlintemplate.ui.screen.DetailScreen
+import com.example.kotlintemplate.ui.screen.HomeScreen
+import com.example.kotlintemplate.ui.screen.rakuten.RakutenScreen
+import com.example.kotlintemplate.ui.screen.rakuten.RakutenViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +30,9 @@ class MainActivity : ComponentActivity() {
                     HomeScreen(
                         onClickDetail = {
                             navController.navigate(Route.Detail(id = 1))
+                        },
+                        onClickRakuten = {
+                            navController.navigate(Route.Rakuten)
                         }
                     )
                 }
@@ -33,6 +40,18 @@ class MainActivity : ComponentActivity() {
                     val detail: Route.Detail = it.toRoute()
                     DetailScreen(
                         id = detail.id,
+                        onBackClick = {
+                            navController.navigateUp()
+                        }
+                    )
+                }
+                composable<Route.Rakuten> {
+                    RakutenScreen(
+                        viewModel = RakutenViewModel(
+                            apiRepository = ApiRepository(
+                                client = ApiClient()
+                            )
+                        ),
                         onBackClick = {
                             navController.navigateUp()
                         }
