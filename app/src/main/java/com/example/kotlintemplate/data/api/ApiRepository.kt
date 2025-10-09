@@ -2,7 +2,13 @@ package com.example.kotlintemplate.data.api
 
 import com.example.kotlintemplate.data.entity.RakutenEntity
 import com.example.kotlintemplate.data.entity.RakutenItem
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
+import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
+import javax.inject.Inject
+import javax.inject.Singleton
 
 interface ApiRepositoryInterface {
     suspend fun rakutenSearch(
@@ -11,7 +17,17 @@ interface ApiRepositoryInterface {
     ): RakutenEntity
 }
 
-class ApiRepository(
+@Module
+@InstallIn(SingletonComponent::class)
+abstract class ApiRepositoryModule {
+    @Binds
+    @Singleton
+    abstract fun bindApiRepository(
+        apiRepository: ApiRepository
+    ): ApiRepositoryInterface
+}
+
+class ApiRepository @Inject constructor(
     client: ApiClientInterface<Retrofit>
 ) : ApiRepositoryInterface {
     private val apiService: ApiService
