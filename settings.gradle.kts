@@ -21,3 +21,10 @@ dependencyResolutionManagement {
 
 rootProject.name = "KotlinTemplate"
 include(":app")
+
+includeBuild("shared") {
+    dependencySubstitution {
+        substitute(module("io.github.yossibank:library"))
+            .using(project(":library"))
+    }
+}

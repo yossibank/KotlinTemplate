@@ -1,4 +1,4 @@
-package com.example.kotlintemplate.ui.screen
+package com.example.kotlintemplate.ui.screen.home
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,6 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import io.github.kotlin.fibonacci.SharedTest
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -45,6 +46,11 @@ fun HomeScreen(
             Text(
                 text = "ホーム",
                 fontSize = 40.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = SharedTest().test(),
+                fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
             )
             Button(onClick = onClickDetail) {

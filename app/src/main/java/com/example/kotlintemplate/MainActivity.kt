@@ -11,7 +11,7 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
 import com.example.kotlintemplate.ui.route.Route
 import com.example.kotlintemplate.ui.screen.DetailScreen
-import com.example.kotlintemplate.ui.screen.HomeScreen
+import com.example.kotlintemplate.ui.screen.home.HomeScreen
 import com.example.kotlintemplate.ui.screen.rakuten.RakutenScreen
 import dagger.Module
 import dagger.Provides
