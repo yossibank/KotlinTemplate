@@ -1,0 +1,4 @@
+[submodule "shared"]
+	path = shared
+	url = https://github.com/yossibank/KotlinMultiplatformLibrary.git
+	branch = main
