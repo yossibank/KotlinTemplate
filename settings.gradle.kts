@@ -21,11 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "KotlinTemplate"
 include(":app")
-include(":kotlin-multiplatform")
-
-includeBuild("shared") {
-    dependencySubstitution {
-        substitute(module("io.github.yossibank:library"))
-            .using(project(":library"))
-    }
-}
+include(":KotlinMultiplatformLibrary")
