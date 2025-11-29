@@ -19,22 +19,22 @@ echo "🚀 Starting release process for version ${VERSION}..."
 
 # 1. XCFramework をビルド & パッケージ化
 echo "📦 Building XCFramework..."
-./gradlew :kotlin-multiplatform:buildXCFramework
+./gradlew :kotlinMultiplatformLibrary:buildXCFramework
 
 echo "📦 Packaging XCFramework..."
-./gradlew :kotlin-multiplatform:packageXCFramework
+./gradlew :kotlinMultiplatformLibrary:packageXCFramework
 
 # 2. チェックサムを取得
-CHECKSUM=$(cat kotlin-multiplatform/build/checksum.txt)
+CHECKSUM=$(cat kotlinMultiplatformLibrary/build/checksum.txt)
 echo "🔑 Checksum: ${CHECKSUM}"
 
 # 3. Git コミットとタグ
 echo "📝 Committing version update..."
 # build.gradle.ktsのバージョンを更新
-sed -i.bak "s/version = \".*\"/version = \"${VERSION}\"/" kotlin-multiplatform/build.gradle.kts
-rm kotlin-multiplatform/build.gradle.kts.bak
+sed -i.bak "s/version = \".*\"/version = \"${VERSION}\"/" kotlinMultiplatformLibrary/build.gradle.kts
+rm kotlinMultiplatformLibrary/build.gradle.kts.bak
 
-git add kotlin-multiplatform/build.gradle.kts
+git add kotlinMultiplatformLibrary/build.gradle.kts
 git commit -m "Release ${TAG}" || echo "No changes to commit"
 
 # 既存のタグとリリースを削除（存在する場合）
@@ -60,7 +60,7 @@ git push origin ${TAG}
 # 4. GitHub Release を作成
 echo "🎉 Creating GitHub Release..."
 gh release create ${TAG} \
-  kotlin-multiplatform/build/${ASSET_NAME} \
+  kotlinMultiplatformLibrary/build/${ASSET_NAME} \
   --title "${TAG}" \
   --notes "Release ${TAG}
 
