@@ -21,6 +21,7 @@ dependencyResolutionManagement {
 
 rootProject.name = "KotlinTemplate"
 include(":app")
+include(":kotlin-multiplatform")
 
 includeBuild("shared") {
     dependencySubstitution {

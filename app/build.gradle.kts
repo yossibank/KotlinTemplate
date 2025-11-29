@@ -68,6 +68,7 @@ dependencies {
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
     implementation(libs.shared.library)
+    implementation(project(":kotlin-multiplatform"))
     testImplementation(libs.junit)
     testImplementation(libs.hilt.android.testing)
     androidTestImplementation(libs.androidx.junit)
