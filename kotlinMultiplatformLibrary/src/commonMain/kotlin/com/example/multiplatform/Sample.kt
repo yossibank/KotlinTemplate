@@ -1,4 +1,4 @@
-package com.example.kotlin_multiplatform
+package com.example.multiplatform
 
 class Sample {
     fun string(): String {

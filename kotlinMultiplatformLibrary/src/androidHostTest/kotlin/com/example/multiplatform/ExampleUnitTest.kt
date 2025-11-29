@@ -1,4 +1,4 @@
-package com.example.kotlin_multiplatform
+package com.example.multiplatform
 
 import kotlin.test.Test
 import kotlin.test.assertEquals

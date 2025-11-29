@@ -6,12 +6,12 @@ plugins {
     alias(libs.plugins.android.lint)
 }
 
-group = "com.yossibank.kotlin.multiplatform"
+group = "com.yossibank.multiplatform"
 version = "1.0.1"
 
 kotlin {
     androidLibrary {
-        namespace = "com.yossibank.kotlin_multiplatform"
+        namespace = "com.yossibank.multiplatform"
         compileSdk = 36
         minSdk = 24
 
