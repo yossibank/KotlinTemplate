@@ -1,7 +1,7 @@
 package foundation
 
-import com.example.kotlinmultiplatformlibrary.foundation.ValueConverter
-import com.example.kotlinmultiplatformlibrary.foundation.ValueFormat
+import com.example.kotlinmultiplatformlibrary.ValueConverter
+import com.example.kotlinmultiplatformlibrary.ValueFormat
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

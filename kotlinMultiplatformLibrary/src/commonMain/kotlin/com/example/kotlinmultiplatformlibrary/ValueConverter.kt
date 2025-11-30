@@ -1,4 +1,4 @@
-package com.example.kotlinmultiplatformlibrary.foundation
+package com.example.kotlinmultiplatformlibrary
 
 import kotlin.math.roundToLong
 
