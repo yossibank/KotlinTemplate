@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "com.example.kotlinmultiplatformlibrary"
-version = "1.0.3"
+version = "1.0.4"
 
 kotlin {
     androidLibrary {
