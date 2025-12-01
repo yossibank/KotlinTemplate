@@ -23,8 +23,8 @@ echo "🚀 Starting release process for version ${VERSION}..."
 # ========================================
 echo "🧹 Cleaning..."
 rm -rf $MODULE_NAME/build/xcframework
-rm -rf $MODULE_NAME/checksum.txt
-rm -rf $MODULE_NAME/KotlinMultiplatformLibrary.xcframework.zip
+rm -f $MODULE_NAME/checksum.txt
+rm -f $MODULE_NAME/KotlinMultiplatformLibrary.xcframework.zip
 ./gradlew clean --refresh-dependencies
 
 echo "✅ Cleanup completed"
