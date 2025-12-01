@@ -15,8 +15,8 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "KotlinMultiplatformLibrary",
-            url: "https://api.github.com/repos/yossibank/KotlinTemplate/releases/assets/322911888.zip",
-            checksum: "716edd1dd89b9b3c018e9af36fc7f2ee185612230ec7ecea9e5260f368aba063"
+            url: "https://api.github.com/repos/yossibank/KotlinTemplate/releases/assets/322912570.zip",
+            checksum: "1f63725fa3e92dedb2ee5885f5a5b56c7b4b202954b9023dce386066f3d78844"
         )
     ]
 )
