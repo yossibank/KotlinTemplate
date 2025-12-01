@@ -19,13 +19,23 @@ ASSET_NAME="KotlinMultiplatformLibrary.xcframework.zip"
 echo "🚀 Starting release process for version ${VERSION}..."
 
 # ========================================
+# 0. キャッシュを完全にクリア
+# ========================================
+echo "🧹 Cleaning all caches..."
+./gradlew clean
+rm -rf ${MODULE_NAME}/build
+rm -rf build
+rm -rf .gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin
+rm -rf ~/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-native*
+
+# ========================================
 # 1. XCFramework をビルド & パッケージ化
 # ========================================
 echo "📦 Building XCFramework from scratch..."
-./gradlew :${MODULE_NAME}:buildXCFramework --rerun-tasks
+./gradlew :${MODULE_NAME}:buildXCFramework --rerun-tasks --no-build-cache
 
 echo "📦 Packaging XCFramework..."
-./gradlew :${MODULE_NAME}:packageXCFramework --rerun-tasks
+./gradlew :${MODULE_NAME}:packageXCFramework --rerun-tasks --no-build-cache
 
 # ビルド成果物の存在確認
 if [ ! -f "${MODULE_NAME}/build/${ASSET_NAME}" ]; then
