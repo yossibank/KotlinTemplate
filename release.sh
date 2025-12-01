@@ -40,14 +40,14 @@ echo "  Checking for specific artifacts..."
 # Gradleキャッシュもクリーン
 echo "  Running Gradle clean..."
 ./gradlew :${MODULE_NAME}:clean
+./gradlew clean --refresh-dependencies
 
 echo "✅ Cleanup completed"
 
 # ========================================
 # 2. XCFramework をビルド & パッケージ化
 # ========================================
-echo "🧹Cleaning..."
-./gradlew clean --refresh-dependencies
+echo "🧹Refreshing..."
 ./gradlew :${MODULE_NAME}:assemble
 ./gradlew :${MODULE_NAME}:linkReleaseFrameworkIosArm64 --refresh-dependencies
 ./gradlew :${MODULE_NAME}:linkReleaseFrameworkIosSimulatorArm64 --refresh-dependencies
