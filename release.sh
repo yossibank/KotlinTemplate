@@ -21,8 +21,7 @@ echo "🚀 Starting release process for version ${VERSION}..."
 # ========================================
 # 1. キャッシュ & ファイル削除
 # ========================================
-echo "🧹 Clearing..."
-rm -rf ~/.konan
+echo "🧹 Cleaning..."
 rm -rf $MODULE_NAME/build/xcframework
 rm -rf $MODULE_NAME/checksum.txt
 rm -rf $MODULE_NAME/KotlinMultiplatformLibrary.xcframework.zip
