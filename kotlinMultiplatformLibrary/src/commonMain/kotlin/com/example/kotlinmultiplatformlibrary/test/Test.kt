@@ -20,4 +20,8 @@ class Test {
     fun test4(): String {
         return "Test4"
     }
+
+    fun test5(): String {
+        return "Test5"
+    }
 }
