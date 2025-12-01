@@ -49,7 +49,8 @@ echo "✅ Cleanup completed"
 echo "🧹Cleaning..."
 ./gradlew clean --refresh-dependencies
 ./gradlew :${MODULE_NAME}:assemble
-./gradlew :${MODULE_NAME}:linkReleaseFrameworkIos --refresh-dependencies
+./gradlew :${MODULE_NAME}:linkReleaseFrameworkIosArm64 --refresh-dependencies
+./gradlew :${MODULE_NAME}:linkReleaseFrameworkIosSimulatorArm64 --refresh-dependencies
 
 echo "📦 Building XCFramework from scratch..."
 ./gradlew :${MODULE_NAME}:buildXCFramework
