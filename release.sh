@@ -19,9 +19,9 @@ ASSET_NAME="KotlinMultiplatformLibrary.xcframework.zip"
 echo "🚀 Starting release process for version ${VERSION}..."
 
 # ========================================
-# 1. すべてのキャッシュ削除
+# 1. キャッシュ & ファイル削除
 # ========================================
-echo "🧹 Clearing all build & KMP caches..."
+echo "🧹 Clearing..."
 rm -rf ~/.konan
 rm -rf $MODULE_NAME/build/xcframework
 rm -rf $MODULE_NAME/checksum.txt
