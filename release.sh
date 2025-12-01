@@ -22,11 +22,10 @@ echo "🚀 Starting release process for version ${VERSION}..."
 # 1. すべてのキャッシュ削除
 # ========================================
 echo "🧹 Clearing all build & KMP caches..."
-rm -rf ~/.gradle/caches
 rm -rf ~/.konan
-rm -rf ~/.konan/build
-rm -rf $MODULE_NAME/build
-rm -rf $MODULE_NAME/.cinterop
+rm -rf $MODULE_NAME/build/xcframework
+rm -rf $MODULE_NAME/checksum.txt
+rm -rf $MODULE_NAME/KotlinMultiplatformLibrary.xcframework.zip
 ./gradlew clean --refresh-dependencies
 
 echo "✅ Cleanup completed"
