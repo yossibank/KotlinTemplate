@@ -19,29 +19,13 @@ ASSET_NAME="KotlinMultiplatformLibrary.xcframework.zip"
 echo "🚀 Starting release process for version ${VERSION}..."
 
 # ========================================
-# 1. キャッシュ & ファイル削除
+# 1. XCFramework をビルド & パッケージ化
 # ========================================
-echo "🧹 Cleaning..."
-rm -rf $MODULE_NAME/build/xcframework
-rm -f $MODULE_NAME/build/checksum.txt
-rm -f $MODULE_NAME/build/KotlinMultiplatformLibrary.xcframework.zip
-./gradlew clean --refresh-dependencies
-
-echo "✅ Cleanup completed"
-
-# ========================================
-# 2. XCFramework をビルド & パッケージ化
-# ========================================
-echo "📦 Assembling & relinking iOS frameworks..."
-./gradlew :${MODULE_NAME}:assemble
-./gradlew :${MODULE_NAME}:linkReleaseFrameworkIosArm64 --refresh-dependencies
-./gradlew :${MODULE_NAME}:linkReleaseFrameworkIosSimulatorArm64 --refresh-dependencies
-
 echo "📦 Building XCFramework from scratch..."
-./gradlew :${MODULE_NAME}:buildXCFramework --refresh-dependencies
+./gradlew :${MODULE_NAME}:buildXCFramework --rerun-tasks
 
 echo "📦 Packaging XCFramework..."
-./gradlew :${MODULE_NAME}:packageXCFramework --refresh-dependencies
+./gradlew :${MODULE_NAME}:packageXCFramework --rerun-tasks
 
 # ビルド成果物の存在確認
 if [ ! -f "${MODULE_NAME}/build/${ASSET_NAME}" ]; then
@@ -57,13 +41,13 @@ fi
 echo "✅ Build artifacts verified"
 
 # ========================================
-# 3. チェックサムを取得
+# 2. チェックサムを取得
 # ========================================
 CHECKSUM=$(cat ${MODULE_NAME}/build/checksum.txt)
 echo "🔑 Checksum: ${CHECKSUM}"
 
 # ========================================
-# 4. Git コミットとタグ
+# 3. Git コミットとタグ
 # ========================================
 echo "📝 Committing version update..."
 # build.gradle.ktsのバージョンを更新
@@ -94,7 +78,7 @@ git push origin main
 git push origin ${TAG}
 
 # ========================================
-# 5. GitHub Release を作成
+# 4. GitHub Release を作成
 # ========================================
 echo "🎉 Creating GitHub Release..."
 gh release create ${TAG} \
@@ -132,7 +116,7 @@ ${CHECKSUM}
 "
 
 # ========================================
-# 6. Asset IDを取得してPackage.swiftを更新
+# 5. Asset IDを取得してPackage.swiftを更新
 # ========================================
 echo "📝 Getting Asset ID and updating Package.swift..."
 sleep 5  # APIの反映を待つ

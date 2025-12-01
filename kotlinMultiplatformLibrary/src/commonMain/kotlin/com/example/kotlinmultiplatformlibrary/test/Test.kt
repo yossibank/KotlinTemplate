@@ -12,4 +12,8 @@ class Test {
     fun test2(): String {
         return "Test2"
     }
+
+    fun test3(): String {
+        return "Test3"
+    }
 }
