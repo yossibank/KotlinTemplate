@@ -46,6 +46,11 @@ echo "✅ Cleanup completed"
 # ========================================
 # 2. XCFramework をビルド & パッケージ化
 # ========================================
+echo "🧹Cleaning..."
+./gradlew clean --refresh-dependencies
+./gradlew :${MODULE_NAME}:assemble
+./gradlew :${MODULE_NAME}:linkReleaseFrameworkIos --refresh-dependencies
+
 echo "📦 Building XCFramework from scratch..."
 ./gradlew :${MODULE_NAME}:buildXCFramework
 
