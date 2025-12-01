@@ -1,9 +1,10 @@
-package com.example.kotlinmultiplatformlibrary
+package com.example.kotlinmultiplatformlibrary.foundation
 
+import kotlin.jvm.JvmOverloads
 import kotlin.math.roundToLong
 
 class ValueConverter {
-    data class Formatter(
+    data class Formatter @JvmOverloads constructor(
         val value: Double?,
         val valueFormat: ValueFormat = ValueFormat(),
         val nullValue: String = "---"

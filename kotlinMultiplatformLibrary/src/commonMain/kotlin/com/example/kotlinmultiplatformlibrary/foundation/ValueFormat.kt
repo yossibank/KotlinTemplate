@@ -1,4 +1,4 @@
-package com.example.kotlinmultiplatformlibrary
+package com.example.kotlinmultiplatformlibrary.foundation
 
 data class ValueFormat(
     val prefix: Prefix = Prefix.None,
