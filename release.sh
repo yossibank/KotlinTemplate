@@ -19,27 +19,14 @@ ASSET_NAME="KotlinMultiplatformLibrary.xcframework.zip"
 echo "🚀 Starting release process for version ${VERSION}..."
 
 # ========================================
-# 1. 古いビルド成果物を削除（キャッシュクリア）
+# 1. すべてのキャッシュ削除
 # ========================================
-echo "🧹 Cleaning old build artifacts..."
-
-# 生成ファイルの削除
-echo "  Checking for specific artifacts..."
-[ -f "${MODULE_NAME}/build/xcframework/KotlinMultiplatformLibrary.xcframework" ] && \
-    echo "  Removing old xcframework..." && \
-    rm -rf "${MODULE_NAME}/build/xcframework"
-
-[ -f "${MODULE_NAME}/build/checksum.txt" ] && \
-    echo "  Removing old checksum..." && \
-    rm -f "${MODULE_NAME}/build/checksum.txt"
-
-[ -f "${MODULE_NAME}/build/KotlinMultiplatformLibrary.xcframework.zip" ] && \
-    echo "  Removing old zip..." && \
-    rm -f "${MODULE_NAME}/build/KotlinMultiplatformLibrary.xcframework.zip"
-
-# Gradleキャッシュもクリーン
-echo "  Running Gradle clean..."
-./gradlew :${MODULE_NAME}:clean
+echo "🧹 Clearing all build & KMP caches..."
+rm -rf ~/.gradle/caches
+rm -rf ~/.konan
+rm -rf ~/.konan/build
+rm -rf $MODULE_NAME/build
+rm -rf $MODULE_NAME/.cinterop
 ./gradlew clean --refresh-dependencies
 
 echo "✅ Cleanup completed"
@@ -47,16 +34,16 @@ echo "✅ Cleanup completed"
 # ========================================
 # 2. XCFramework をビルド & パッケージ化
 # ========================================
-echo "🧹Refreshing..."
+echo "📦 Assembling & relinking iOS frameworks..."
 ./gradlew :${MODULE_NAME}:assemble
 ./gradlew :${MODULE_NAME}:linkReleaseFrameworkIosArm64 --refresh-dependencies
 ./gradlew :${MODULE_NAME}:linkReleaseFrameworkIosSimulatorArm64 --refresh-dependencies
 
 echo "📦 Building XCFramework from scratch..."
-./gradlew :${MODULE_NAME}:buildXCFramework
+./gradlew :${MODULE_NAME}:buildXCFramework --refresh-dependencies
 
 echo "📦 Packaging XCFramework..."
-./gradlew :${MODULE_NAME}:packageXCFramework
+./gradlew :${MODULE_NAME}:packageXCFramework --refresh-dependencies
 
 # ビルド成果物の存在確認
 if [ ! -f "${MODULE_NAME}/build/${ASSET_NAME}" ]; then
