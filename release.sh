@@ -137,7 +137,13 @@ sed -i.bak "s/version = \".*\"/version = \"${VERSION}\"/" ${MODULE_NAME}/build.g
 rm ${MODULE_NAME}/build.gradle.kts.bak
 
 # ========================================
-# 7. 一時ブランチでコミット & タグ作成
+# 7. Gradle Syncを実行して.idea/artifacts/を生成
+# ========================================
+echo "🔄 Running Gradle Sync to generate .idea/artifacts/..."
+./gradlew :${MODULE_NAME}:generateIdeaArtifacts
+
+# ========================================
+# 8. 一時ブランチでコミット & タグ作成
 # ========================================
 echo "📝 Creating temporary branch and committing..."
 git checkout -b ${TMP_BRANCH}
@@ -155,13 +161,13 @@ git tag -a ${TAG} -m "KotlinMultiplatformLibrary ${VERSION}"
 git push origin ${TAG}
 
 # ========================================
-# 8. リリースのタグを更新 & 公開
+# 9. リリースのタグを更新 & 公開
 # ========================================
 echo "🔄 Updating release tag and publishing..."
 gh release edit ${RELEASE_VERSION} --tag ${TAG} --draft=false
 
 # ========================================
-# 9. mainブランチにマージ
+# 10. mainブランチにマージ
 # ========================================
 echo "🔀 Merging to main..."
 git checkout main
