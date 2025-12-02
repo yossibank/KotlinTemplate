@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="jar" name="kotlinMultiplatformLibrary">
-    <output-path>$PROJECT_DIR$/kotlinMultiplatformLibrary/build/libs</output-path>
-    <root id="archive" name="kotlinMultiplatformLibrary.jar">
-      <element id="module-output" name="KotlinTemplate.kotlinMultiplatformLibrary.androidMain" />
-    </root>
-  </artifact>
-</component>
