@@ -140,7 +140,6 @@ rm ${MODULE_NAME}/build.gradle.kts.bak
 # 7. Gradle Syncを実行して.idea/artifacts/を生成
 # ========================================
 echo "🔄 Running Gradle Sync to generate .idea/artifacts/..."
-./gradlew :${MODULE_NAME}:generateIdeaArtifacts
 
 # ========================================
 # 8. 一時ブランチでコミット & タグ作成
