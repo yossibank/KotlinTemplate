@@ -32,4 +32,16 @@ class Test {
     fun test7(): String {
         return "Test7"
     }
+
+    fun test8(): String {
+        return "Test8"
+    }
+
+    fun test9(): String {
+        return "Test9"
+    }
+
+    fun test10(): String {
+        return "Test10"
+    }
 }

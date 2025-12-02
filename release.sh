@@ -143,6 +143,11 @@ echo "📝 Creating temporary branch and committing..."
 git checkout -b ${TMP_BRANCH}
 
 git add Package.swift ${MODULE_NAME}/build.gradle.kts
+
+if [ -d ".idea/artifacts" ]; then
+    git add .idea/artifacts/
+fi
+
 git commit -m "Release ${TAG}"
 
 echo "🏷️  Creating tag ${TAG}..."
