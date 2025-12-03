@@ -1,7 +1,9 @@
 package foundation
 
 import com.example.kotlinmultiplatformlibrary.foundation.ValueFormatter
+import com.example.kotlinmultiplatformlibrary.foundation.ValuePrefix
 import com.example.kotlinmultiplatformlibrary.foundation.ValueStyle
+import com.example.kotlinmultiplatformlibrary.foundation.ValueSuffix
 import kotlin.test.Test
 import kotlin.test.assertEquals
 
@@ -50,8 +52,8 @@ class ValueFormatterTest {
         val valueFormatter = ValueFormatter(
             value = value,
             style = ValueStyle(
-                prefix = ValueStyle.Prefix.Plus,
-                suffix = ValueStyle.Suffix.Yen
+                prefix = ValuePrefix.Plus,
+                suffix = ValueSuffix.Yen
             )
         )
         val actual = valueFormatter.format()
@@ -225,7 +227,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(prefix = ValueStyle.Prefix.None)
+            style = ValueStyle(prefix = ValuePrefix.None)
         )
         val actual = valueFormatter.format()
 
@@ -245,7 +247,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(prefix = ValueStyle.Prefix.Plus)
+            style = ValueStyle(prefix = ValuePrefix.Plus)
         )
         val actual = valueFormatter.format()
 
@@ -265,7 +267,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(prefix = ValueStyle.Prefix.Custom("$"))
+            style = ValueStyle(prefix = ValuePrefix.Custom("$"))
         )
         val actual = valueFormatter.format()
 
@@ -285,7 +287,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueStyle.Suffix.None)
+            style = ValueStyle(suffix = ValueSuffix.None)
         )
         val actual = valueFormatter.format()
 
@@ -305,7 +307,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueStyle.Suffix.Yen)
+            style = ValueStyle(suffix = ValueSuffix.Yen)
         )
         val actual = valueFormatter.format()
 
@@ -325,7 +327,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueStyle.Suffix.Dollar)
+            style = ValueStyle(suffix = ValueSuffix.Dollar)
         )
         val actual = valueFormatter.format()
 
@@ -345,7 +347,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueStyle.Suffix.HundredMillionYen)
+            style = ValueStyle(suffix = ValueSuffix.HundredMillionYen)
         )
         val actual = valueFormatter.format()
 
@@ -365,7 +367,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueStyle.Suffix.HundredMillionDollar)
+            style = ValueStyle(suffix = ValueSuffix.HundredMillionDollar)
         )
         val actual = valueFormatter.format()
 
@@ -385,7 +387,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueStyle.Suffix.Percent)
+            style = ValueStyle(suffix = ValueSuffix.Percent)
         )
         val actual = valueFormatter.format()
 
@@ -405,7 +407,7 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueStyle.Suffix.Custom("回"))
+            style = ValueStyle(suffix = ValueSuffix.Custom("回"))
         )
         val actual = valueFormatter.format()
 
