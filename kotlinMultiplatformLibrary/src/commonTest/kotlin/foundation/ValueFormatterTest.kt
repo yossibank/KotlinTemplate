@@ -1,5 +1,6 @@
 package foundation
 
+import com.example.kotlinmultiplatformlibrary.foundation.ValueCustom
 import com.example.kotlinmultiplatformlibrary.foundation.ValueFormatter
 import com.example.kotlinmultiplatformlibrary.foundation.ValuePrefix
 import com.example.kotlinmultiplatformlibrary.foundation.ValueStyle
@@ -261,13 +262,16 @@ class ValueFormatterTest {
     @Test
     fun prefix_custom() {
         // arrange
-        val value = 10000.0
-        val expected = "$10,000"
+        val value = 50.15
+        val expected = "約50.15"
 
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(prefix = ValuePrefix.Custom("$"))
+            style = ValueStyle(
+                prefix = ValuePrefix.Custom,
+                custom = ValueCustom(prefix = "約")
+            )
         )
         val actual = valueFormatter.format()
 
@@ -319,15 +323,15 @@ class ValueFormatterTest {
     }
 
     @Test
-    fun suffix_dollar() {
+    fun suffix_hundred_million_yen() {
         // arrange
-        val value = 10000.0
-        val expected = "10,000ドル"
+        val value = 168_000_000_000.0
+        val expected = "1,680億円"
 
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueSuffix.Dollar)
+            style = ValueStyle(suffix = ValueSuffix.HundredMillionYen)
         )
         val actual = valueFormatter.format()
 
@@ -339,15 +343,15 @@ class ValueFormatterTest {
     }
 
     @Test
-    fun suffix_hundred_million_yen() {
+    fun suffix_dollar() {
         // arrange
-        val value = 168_000_000_000.0
-        val expected = "1,680億円"
+        val value = 10000.0
+        val expected = "10,000ドル"
 
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueSuffix.HundredMillionYen)
+            style = ValueStyle(suffix = ValueSuffix.Dollar)
         )
         val actual = valueFormatter.format()
 
@@ -407,7 +411,10 @@ class ValueFormatterTest {
         // act
         val valueFormatter = ValueFormatter(
             value = value,
-            style = ValueStyle(suffix = ValueSuffix.Custom("回"))
+            style = ValueStyle(
+                suffix = ValueSuffix.Custom,
+                custom = ValueCustom(suffix = "回")
+            )
         )
         val actual = valueFormatter.format()
 

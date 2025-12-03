@@ -9,16 +9,29 @@ class ValueFormatter @DefaultArgumentInterop.Enabled constructor(
     val nullValue: String = "---"
 ) {
     fun format(): String {
-        val prefix = style.prefix
-        val suffix = style.suffix
-        val nullString = prefix.unit + nullValue + suffix.unit
+        val prefix = when (style.prefix) {
+            ValuePrefix.Custom -> style.custom.prefix
+            else -> style.prefix.unit
+        }
+
+        val suffix = when (style.suffix) {
+            ValueSuffix.Custom -> style.custom.suffix
+            else -> style.suffix.unit
+        }
+
+        val divisor = when (style.suffix) {
+            ValueSuffix.Custom -> style.custom.divisor
+            else -> style.suffix.divisor
+        }
+
+        val nullString = prefix + nullValue + suffix
 
         val formattedValue = when {
             value == null -> null
             value == Double.MAX_VALUE -> null
             value == Double.MIN_VALUE -> null
             !value.isFinite() -> null
-            else -> value / style.suffix.divisor
+            else -> value / divisor
         } ?: return nullString
 
         val (integer, decimal) = formattedParts(formattedValue)
@@ -26,7 +39,7 @@ class ValueFormatter @DefaultArgumentInterop.Enabled constructor(
         val integerString = formattedInteger(integer)
         val decimalString = formattedDecimal(decimal)
 
-        return prefix.unit + integerString + decimalString + suffix.unit
+        return prefix + integerString + decimalString + suffix
     }
 
     private fun formattedParts(value: Double): Pair<String, String> {
