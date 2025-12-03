@@ -98,8 +98,8 @@ abstract class BuildXCFrameworkTask : DefaultTask() {
 
 tasks.register<BuildXCFrameworkTask>("buildXCFramework") {
     dependsOn(
-        "skieLinkReleaseFrameworkIosArm64",
-        "skieLinkReleaseFrameworkIosSimulatorArm64"
+        "linkReleaseFrameworkIosArm64",
+        "linkReleaseFrameworkIosSimulatorArm64"
     )
 
     val frameworkNameValue = "KotlinMultiplatformLibrary"
