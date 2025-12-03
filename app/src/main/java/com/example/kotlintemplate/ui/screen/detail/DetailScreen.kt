@@ -19,6 +19,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.kotlinmultiplatformlibrary.foundation.ValueFormatter
+import com.example.kotlinmultiplatformlibrary.foundation.ValueStyle
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -60,6 +62,14 @@ fun DetailScreen(
             )
             Text(
                 text = "ID: $id",
+                fontSize = 28.sp,
+                fontWeight = FontWeight.Bold
+            )
+            Text(
+                text = ValueFormatter(
+                    value = 99.99,
+                    style = ValueStyle(suffix = ValueStyle.Suffix.Percent)
+                ).format(),
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )
