@@ -43,6 +43,12 @@ kotlin {
     }
 }
 
+skie {
+    build {
+        produceDistributableFramework()
+    }
+}
+
 // BuildXCFrameworkTask
 abstract class BuildXCFrameworkTask : DefaultTask() {
     @get:Inject
@@ -92,8 +98,8 @@ abstract class BuildXCFrameworkTask : DefaultTask() {
 
 tasks.register<BuildXCFrameworkTask>("buildXCFramework") {
     dependsOn(
-        "linkReleaseFrameworkIosArm64",
-        "linkReleaseFrameworkIosSimulatorArm64"
+        "skieLinkReleaseFrameworkIosArm64",
+        "skieLinkReleaseFrameworkIosSimulatorArm64"
     )
 
     val frameworkNameValue = "KotlinMultiplatformLibrary"
