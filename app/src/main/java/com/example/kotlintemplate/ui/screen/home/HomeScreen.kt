@@ -16,7 +16,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import io.github.yossibank.kotlinmultiplatformlibrary.sample.Sample
+import io.github.yossibank.kotlinmultiplatformlibrary.SharedFoundation
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -49,7 +49,7 @@ fun HomeScreen(
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = Sample().string(),
+                text = SharedFoundation.device(label = "Home"),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
             )
