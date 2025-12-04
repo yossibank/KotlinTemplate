@@ -67,7 +67,7 @@ dependencies {
     implementation(libs.androidx.material.icons.extended)
     implementation(libs.hilt.android)
     implementation(libs.hilt.navigation.compose)
-    implementation(project(":kotlinMultiplatformLibrary"))
+    implementation(project(":shared-foundation"))
     testImplementation(libs.junit)
     testImplementation(libs.hilt.android.testing)
     androidTestImplementation(libs.androidx.junit)

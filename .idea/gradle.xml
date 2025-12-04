@@ -11,7 +11,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
-            <option value="$PROJECT_DIR$/kotlinMultiplatformLibrary" />
+            <option value="$PROJECT_DIR$/shared-foundation" />
           </set>
         </option>
       </GradleProjectSettings>

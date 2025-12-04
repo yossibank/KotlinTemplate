@@ -19,9 +19,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.kotlinmultiplatformlibrary.foundation.ValueFormatter
-import com.example.kotlinmultiplatformlibrary.foundation.ValueStyle
-import com.example.kotlinmultiplatformlibrary.foundation.ValueSuffix
+import io.github.yossibank.kotlinmultiplatformlibrary.foundation.ValueFormatter
+import io.github.yossibank.kotlinmultiplatformlibrary.foundation.ValueStyle
+import io.github.yossibank.kotlinmultiplatformlibrary.foundation.ValueSuffix
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

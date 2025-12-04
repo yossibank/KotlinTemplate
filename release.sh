@@ -12,7 +12,7 @@ TAG="v${VERSION}"
 RELEASE_VERSION="${TAG}"
 REPO_OWNER="yossibank"
 REPO_NAME="KotlinTemplate"
-MODULE_NAME="kotlinMultiplatformLibrary"
+MODULE_NAME="shared-foundation"
 ASSET_NAME="KotlinMultiplatformLibrary.xcframework.zip"
 TMP_BRANCH="kmp_release_${VERSION}"
 

@@ -21,4 +21,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "KotlinTemplate"
 include(":app")
-include(":kotlinMultiplatformLibrary")
+include(":shared-foundation")
