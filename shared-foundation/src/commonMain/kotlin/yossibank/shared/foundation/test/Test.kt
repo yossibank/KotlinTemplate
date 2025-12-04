@@ -1,4 +1,4 @@
-package io.github.yossibank.kotlinmultiplatformlibrary.test
+package yossibank.shared.foundation.test
 
 enum class TestEnum {
     Test1,

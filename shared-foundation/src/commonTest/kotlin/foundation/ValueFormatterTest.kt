@@ -1,10 +1,10 @@
 package foundation
 
-import io.github.yossibank.kotlinmultiplatformlibrary.foundation.ValueCustom
-import io.github.yossibank.kotlinmultiplatformlibrary.foundation.ValueFormatter
-import io.github.yossibank.kotlinmultiplatformlibrary.foundation.ValuePrefix
-import io.github.yossibank.kotlinmultiplatformlibrary.foundation.ValueStyle
-import io.github.yossibank.kotlinmultiplatformlibrary.foundation.ValueSuffix
+import yossibank.shared.foundation.value.ValueCustom
+import yossibank.shared.foundation.value.ValueFormatter
+import yossibank.shared.foundation.value.ValuePrefix
+import yossibank.shared.foundation.value.ValueStyle
+import yossibank.shared.foundation.value.ValueSuffix
 import kotlin.test.Test
 import kotlin.test.assertEquals
 

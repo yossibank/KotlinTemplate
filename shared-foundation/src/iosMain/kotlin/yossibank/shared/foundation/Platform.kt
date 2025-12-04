@@ -1,4 +1,4 @@
-package io.github.yossibank.kotlinmultiplatformlibrary
+package yossibank.shared.foundation
 
 import platform.UIKit.UIDevice
 

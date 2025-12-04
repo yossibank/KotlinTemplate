@@ -1,4 +1,4 @@
-package io.github.yossibank.kotlinmultiplatformlibrary.foundation
+package yossibank.shared.foundation.value
 
 import co.touchlab.skie.configuration.annotations.DefaultArgumentInterop
 import kotlin.math.roundToLong
