@@ -5,10 +5,10 @@ import kotlin.math.roundToLong
 
 class ValueFormatter @DefaultArgumentInterop.Enabled constructor(
     val value: Double?,
-    val style: ValueStyle = ValueStyle(),
     val nullValue: String = "---"
 ) {
-    fun format(): String {
+    @DefaultArgumentInterop.Enabled
+    fun format(style: ValueStyle = ValueStyle()): String {
         val prefix = when (style.prefix) {
             ValuePrefix.Custom -> style.custom.prefix
             else -> style.prefix.unit

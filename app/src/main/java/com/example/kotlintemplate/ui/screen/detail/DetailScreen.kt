@@ -67,10 +67,9 @@ fun DetailScreen(
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = ValueFormatter(
-                    value = 99.99,
-                    style = ValueStyle(suffix = ValueSuffix.Percent)
-                ).format(),
+                text = ValueFormatter(value = 99.99).format(
+                    ValueStyle(suffix = ValueSuffix.Percent)
+                ),
                 fontSize = 28.sp,
                 fontWeight = FontWeight.Bold
             )

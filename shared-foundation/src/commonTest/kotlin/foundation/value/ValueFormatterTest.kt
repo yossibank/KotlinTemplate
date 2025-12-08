@@ -1,4 +1,4 @@
-package foundation
+package foundation.value
 
 import yossibank.shared.foundation.value.ValueCustom
 import yossibank.shared.foundation.value.ValueFormatter
@@ -16,8 +16,7 @@ class ValueFormatterTest {
         val expected = "1,000"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -33,8 +32,7 @@ class ValueFormatterTest {
         val expected = "-1,000"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -50,14 +48,12 @@ class ValueFormatterTest {
         val expected = "+---円"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(
+        val actual = ValueFormatter(value).format(
+            ValueStyle(
                 prefix = ValuePrefix.Plus,
                 suffix = ValueSuffix.Yen
             )
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -73,8 +69,7 @@ class ValueFormatterTest {
         val expected = "---"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -90,8 +85,7 @@ class ValueFormatterTest {
         val expected = "---"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -107,8 +101,7 @@ class ValueFormatterTest {
         val expected = "---"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -124,8 +117,7 @@ class ValueFormatterTest {
         val expected = "---"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -141,8 +133,7 @@ class ValueFormatterTest {
         val expected = "---"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -158,8 +149,7 @@ class ValueFormatterTest {
         val expected = "10,000.2"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -175,8 +165,7 @@ class ValueFormatterTest {
         val expected = "10,000.28"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -192,8 +181,7 @@ class ValueFormatterTest {
         val expected = "10,000.26"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -209,8 +197,7 @@ class ValueFormatterTest {
         val expected = "10,000.25"
 
         // act
-        val valueFormatter = ValueFormatter(value)
-        val actual = valueFormatter.format()
+        val actual = ValueFormatter(value).format()
 
         // assert
         assertEquals(
@@ -226,11 +213,9 @@ class ValueFormatterTest {
         val expected = "10,000"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(prefix = ValuePrefix.None)
+        val actual = ValueFormatter(value).format(
+            ValueStyle(prefix = ValuePrefix.None)
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -246,11 +231,9 @@ class ValueFormatterTest {
         val expected = "+10,000"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(prefix = ValuePrefix.Plus)
+        val actual = ValueFormatter(value = value).format(
+            ValueStyle(prefix = ValuePrefix.Plus)
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -266,14 +249,12 @@ class ValueFormatterTest {
         val expected = "約50.15"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(
+        val actual = ValueFormatter(value).format(
+            ValueStyle(
                 prefix = ValuePrefix.Custom,
                 custom = ValueCustom(prefix = "約")
             )
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -289,11 +270,9 @@ class ValueFormatterTest {
         val expected = "10,000"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(suffix = ValueSuffix.None)
+        val actual = ValueFormatter(value).format(
+            ValueStyle(suffix = ValueSuffix.None)
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -309,11 +288,9 @@ class ValueFormatterTest {
         val expected = "10,000円"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(suffix = ValueSuffix.Yen)
+        val actual = ValueFormatter(value).format(
+            ValueStyle(suffix = ValueSuffix.Yen)
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -329,11 +306,9 @@ class ValueFormatterTest {
         val expected = "1,680億円"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(suffix = ValueSuffix.HundredMillionYen)
+        val actual = ValueFormatter(value).format(
+            ValueStyle(suffix = ValueSuffix.HundredMillionYen)
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -349,11 +324,9 @@ class ValueFormatterTest {
         val expected = "10,000ドル"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(suffix = ValueSuffix.Dollar)
+        val actual = ValueFormatter(value).format(
+            ValueStyle(suffix = ValueSuffix.Dollar)
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -369,11 +342,9 @@ class ValueFormatterTest {
         val expected = "0.17億ドル"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(suffix = ValueSuffix.HundredMillionDollar)
+        val actual = ValueFormatter(value).format(
+            ValueStyle(suffix = ValueSuffix.HundredMillionDollar)
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -389,11 +360,9 @@ class ValueFormatterTest {
         val expected = "98.72%"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(suffix = ValueSuffix.Percent)
+        val actual = ValueFormatter(value).format(
+            ValueStyle(suffix = ValueSuffix.Percent)
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(
@@ -409,14 +378,12 @@ class ValueFormatterTest {
         val expected = "15回"
 
         // act
-        val valueFormatter = ValueFormatter(
-            value = value,
-            style = ValueStyle(
+        val actual = ValueFormatter(value).format(
+            ValueStyle(
                 suffix = ValueSuffix.Custom,
                 custom = ValueCustom(suffix = "回")
             )
         )
-        val actual = valueFormatter.format()
 
         // assert
         assertEquals(

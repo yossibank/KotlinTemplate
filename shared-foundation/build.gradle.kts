@@ -8,8 +8,6 @@ kotlin {
         namespace = "yossibank.shared.foundation"
         compileSdk = 36
         minSdk = 24
-
-        withHostTestBuilder {}.configure {}
     }
 
     iosArm64()

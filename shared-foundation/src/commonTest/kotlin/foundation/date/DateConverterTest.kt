@@ -1,0 +1,471 @@
+package foundation.date
+
+import kotlinx.datetime.LocalDateTime
+import yossibank.shared.foundation.date.DateConverter
+import yossibank.shared.foundation.date.DateFormat
+import kotlin.test.Test
+import kotlin.test.assertEquals
+
+class DateConverterTest {
+    @Test
+    fun formatToString_null() {
+        // arrange
+        val value: String? = null
+        val expected = "--月--日"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            nullValue = "--月--日",
+            format = DateFormat.DJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun formatToString_HJp() {
+        // arrange
+        val value = "2025-12-06T15:00:00"
+        val expected = "15時"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            format = DateFormat.HJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun formatToString_HMJp() {
+        // arrange
+        val value = "2025-12-06T15:00:00"
+        val expected = "15時0分"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            format = DateFormat.HMJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun formatToString_DJp() {
+        // arrange
+        val value = "2025-12-06T15:00:00"
+        val expected = "6日"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            format = DateFormat.DJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun formatToString_MJp() {
+        // arrange
+        val value = "2025-12-06T15:00:00"
+        val expected = "12月"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            format = DateFormat.MJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun formatToString_MDJp() {
+        // arrange
+        val value = "2025-12-06T15:00:00"
+        val expected = "12月6日"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            format = DateFormat.MDJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun formatToString_YJp() {
+        // arrange
+        val value = "2025-12-06T15:00:00"
+        val expected = "2025年"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            format = DateFormat.YJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun formatToString_YMDJp() {
+        // arrange
+        val value = "2025-12-06T15:00:00"
+        val expected = "2025年12月6日"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            format = DateFormat.YMDJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun dateToString_HJp() {
+        // arrange
+        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val expected = "15時"
+
+        // act
+        val actual = DateConverter().dateToString(
+            date = value,
+            format = DateFormat.HJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun dateToString_HMJp() {
+        // arrange
+        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val expected = "15時0分"
+
+        // act
+        val actual = DateConverter().dateToString(
+            date = value,
+            format = DateFormat.HMJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun dateToString_DJp() {
+        // arrange
+        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val expected = "6日"
+
+        // act
+        val actual = DateConverter().dateToString(
+            date = value,
+            format = DateFormat.DJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun dateToString_MJp() {
+        // arrange
+        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val expected = "12月"
+
+        // act
+        val actual = DateConverter().dateToString(
+            date = value,
+            format = DateFormat.MJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun dateToString_MDJp() {
+        // arrange
+        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val expected = "12月6日"
+
+        // act
+        val actual = DateConverter().dateToString(
+            date = value,
+            format = DateFormat.MDJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun dateToString_YJp() {
+        // arrange
+        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val expected = "2025年"
+
+        // act
+        val actual = DateConverter().dateToString(
+            date = value,
+            format = DateFormat.YJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun dateToString_YMDJp() {
+        // arrange
+        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val expected = "2025年12月6日"
+
+        // act
+        val actual = DateConverter().dateToString(
+            date = value,
+            format = DateFormat.YMDJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_Iso8601() {
+        // arrange
+        val value = "2025-12-06T15:00:00"
+        val expected = LocalDateTime(2025, 12, 6, 15, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_Iso8601Minute() {
+        // arrange
+        val value = "2025-12-06T15:00"
+        val expected = LocalDateTime(2025, 12, 6, 15, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_Slash() {
+        // arrange
+        val value = "2025/12/06 15:00:00"
+        val expected = LocalDateTime(2025, 12, 6, 15, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_SlashMinute() {
+        // arrange
+        val value = "2025/12/06 15:00"
+        val expected = LocalDateTime(2025, 12, 6, 15, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_SlashDate() {
+        // arrange
+        val value = "2025/12/06"
+        val expected = LocalDateTime(2025, 12, 6, 0, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_Hyphen() {
+        // arrange
+        val value = "2025-12-06 15:00:00"
+        val expected = LocalDateTime(2025, 12, 6, 15, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_HyphenMinute() {
+        // arrange
+        val value = "2025-12-06 15:00"
+        val expected = LocalDateTime(2025, 12, 6, 15, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_HyphenDate() {
+        // arrange
+        val value = "2025-12-06"
+        val expected = LocalDateTime(2025, 12, 6, 0, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_Jp() {
+        // arrange
+        val value = "2025年12月06日 15時00分00秒"
+        val expected = LocalDateTime(2025, 12, 6, 15, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_JpMinute() {
+        // arrange
+        val value = "2025年12月06日 15時00分"
+        val expected = LocalDateTime(2025, 12, 6, 15, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun stringToDate_JpDate() {
+        // arrange
+        val value = "2025年12月06日"
+        val expected = LocalDateTime(2025, 12, 6, 0, 0, 0)
+
+        // act
+        val actual = DateConverter().stringToDate(value)
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+}

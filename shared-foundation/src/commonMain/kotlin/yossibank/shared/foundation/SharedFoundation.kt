@@ -5,9 +5,9 @@ import co.touchlab.skie.configuration.annotations.DefaultArgumentInterop
 object SharedFoundation {
     @DefaultArgumentInterop.Enabled
     fun device(label: String = "SharedFoundation"): String {
-        return "$label: ${platform()} ${name()}"
+        return "$label: ${platform()} ${version()}"
     }
 }
 
 expect fun platform(): String
-expect fun name(): String
+expect fun version(): String
