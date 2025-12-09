@@ -161,14 +161,33 @@ class DateConverterTest {
     }
 
     @Test
-    fun dateToString_HJp() {
+    fun formatToString_MDEHmsJp() {
         // arrange
-        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val value = "2025-12-06 15:45:45"
+        val expected = "12/6(土) 15:45:45"
+
+        // act
+        val actual = DateConverter().formatToString(
+            value = value,
+            format = DateFormat.MDEHmsJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun epochToString_HJp() {
+        // arrange
+        val value: Long = 1765000800 // 2025-12-06 15:00:00
         val expected = "15時"
 
         // act
-        val actual = DateConverter().dateToString(
-            date = value,
+        val actual = DateConverter().epochToString(
+            epoch = value,
             format = DateFormat.HJp
         )
 
@@ -180,14 +199,14 @@ class DateConverterTest {
     }
 
     @Test
-    fun dateToString_HMJp() {
+    fun epochToString_HMJp() {
         // arrange
-        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val value: Long = 1765000800 // 2025-12-06 15:00:00
         val expected = "15時0分"
 
         // act
-        val actual = DateConverter().dateToString(
-            date = value,
+        val actual = DateConverter().epochToString(
+            epoch = value,
             format = DateFormat.HMJp
         )
 
@@ -199,14 +218,14 @@ class DateConverterTest {
     }
 
     @Test
-    fun dateToString_DJp() {
+    fun epochToString_DJp() {
         // arrange
-        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val value: Long = 1765000800 // 2025-12-06 15:00:00
         val expected = "6日"
 
         // act
-        val actual = DateConverter().dateToString(
-            date = value,
+        val actual = DateConverter().epochToString(
+            epoch = value,
             format = DateFormat.DJp
         )
 
@@ -218,14 +237,14 @@ class DateConverterTest {
     }
 
     @Test
-    fun dateToString_MJp() {
+    fun epochToString_MJp() {
         // arrange
-        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val value: Long = 1765000800 // 2025-12-06 15:00:00
         val expected = "12月"
 
         // act
-        val actual = DateConverter().dateToString(
-            date = value,
+        val actual = DateConverter().epochToString(
+            epoch = value,
             format = DateFormat.MJp
         )
 
@@ -237,14 +256,14 @@ class DateConverterTest {
     }
 
     @Test
-    fun dateToString_MDJp() {
+    fun epochToString_MDJp() {
         // arrange
-        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val value: Long = 1765000800 // 2025-12-06 15:00:00
         val expected = "12月6日"
 
         // act
-        val actual = DateConverter().dateToString(
-            date = value,
+        val actual = DateConverter().epochToString(
+            epoch = value,
             format = DateFormat.MDJp
         )
 
@@ -256,14 +275,14 @@ class DateConverterTest {
     }
 
     @Test
-    fun dateToString_YJp() {
+    fun epochToString_YJp() {
         // arrange
-        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val value: Long = 1765000800 // 2025-12-06 15:00:00
         val expected = "2025年"
 
         // act
-        val actual = DateConverter().dateToString(
-            date = value,
+        val actual = DateConverter().epochToString(
+            epoch = value,
             format = DateFormat.YJp
         )
 
@@ -275,14 +294,33 @@ class DateConverterTest {
     }
 
     @Test
-    fun dateToString_YMDJp() {
+    fun epochToString_MDEHmsJp() {
         // arrange
-        val value = LocalDateTime(2025, 12, 6, 15, 0, 0)
+        val value: Long = 1765003500 // 2025-12-06 15:45:00
+        val expected = "12/6(土) 15:45:00"
+
+        // act
+        val actual = DateConverter().epochToString(
+            epoch = value,
+            format = DateFormat.MDEHmsJp
+        )
+
+        // assert
+        assertEquals(
+            expected,
+            actual
+        )
+    }
+
+    @Test
+    fun epochToString_YMDJp() {
+        // arrange
+        val value: Long = 1765000800
         val expected = "2025年12月6日"
 
         // act
-        val actual = DateConverter().dateToString(
-            date = value,
+        val actual = DateConverter().epochToString(
+            epoch = value,
             format = DateFormat.YMDJp
         )
 

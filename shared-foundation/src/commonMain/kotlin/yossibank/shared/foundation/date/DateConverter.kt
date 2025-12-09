@@ -2,7 +2,11 @@ package yossibank.shared.foundation.date
 
 import co.touchlab.skie.configuration.annotations.DefaultArgumentInterop
 import kotlinx.datetime.LocalDateTime
+import kotlinx.datetime.TimeZone
 import kotlinx.datetime.atTime
+import kotlinx.datetime.toLocalDateTime
+import kotlin.time.ExperimentalTime
+import kotlin.time.Instant
 
 class DateConverter {
     @DefaultArgumentInterop.Enabled
@@ -13,13 +17,19 @@ class DateConverter {
     ): String {
         if (value.isNullOrEmpty()) return nullValue
         val date = stringToDate(value) ?: return nullValue
-        return dateToString(date, format)
+        return format.formatter.format(date)
     }
 
-    fun dateToString(
-        date: LocalDateTime,
+    @OptIn(ExperimentalTime::class)
+    @DefaultArgumentInterop.Enabled
+    fun epochToString(
+        epoch: Long,
+        timeZone: String = "Asia/Tokyo",
         format: DateFormat
     ): String {
+        val instant = Instant.fromEpochSeconds(epoch)
+        val timeZone = TimeZone.of(timeZone)
+        val date = instant.toLocalDateTime(timeZone)
         return format.formatter.format(date)
     }
 
