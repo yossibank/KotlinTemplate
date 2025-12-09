@@ -7,7 +7,7 @@ plugins {
 }
 
 group = "io.github.yossibank.kotlinmultiplatformlibrary"
-version = "1.2.8"
+version = "1.2.9"
 
 kotlin {
     androidLibrary {
