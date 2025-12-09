@@ -44,6 +44,56 @@ skie {
     }
 }
 
+// FixBundleIdentifierTask
+abstract class FixBundleIdentifierTask : DefaultTask() {
+    @get:Inject
+    abstract val execOperations: ExecOperations
+
+    @get:Input
+    abstract val frameworkName: Property<String>
+
+    @get:Input
+    abstract val bundleIdentifier: Property<String>
+
+    @get:InputDirectory
+    abstract val buildDirectory: DirectoryProperty
+
+    @TaskAction
+    fun execute() {
+        val frameworkNameValue = frameworkName.get()
+        val bundleId = bundleIdentifier.get()
+        val buildDir = buildDirectory.get().asFile
+
+        listOf("iosArm64", "iosSimulatorArm64").forEach { target ->
+            val plistPath =
+                "$buildDir/bin/$target/releaseFramework/$frameworkNameValue.framework/Info.plist"
+
+            execOperations.exec {
+                commandLine(
+                    "/usr/libexec/PlistBuddy",
+                    "-c", "Set :CFBundleIdentifier $bundleId",
+                    plistPath
+                )
+            }
+            logger.lifecycle("✅ Fixed BundleIdentifier in $target")
+        }
+    }
+}
+
+tasks.register<FixBundleIdentifierTask>("fixBundleIdentifier") {
+    dependsOn(
+        "linkReleaseFrameworkIosArm64",
+        "linkReleaseFrameworkIosSimulatorArm64"
+    )
+
+    group = "build"
+    description = "Fix CFBundleIdentifier in framework Info.plist"
+
+    frameworkName.set("KotlinMultiplatformLibrary")
+    bundleIdentifier.set("io.github.yossibank.KotlinMultiplatformLibrary")
+    buildDirectory.set(layout.buildDirectory)
+}
+
 // BuildXCFrameworkTask
 abstract class BuildXCFrameworkTask : DefaultTask() {
     @get:Inject
@@ -92,10 +142,7 @@ abstract class BuildXCFrameworkTask : DefaultTask() {
 }
 
 tasks.register<BuildXCFrameworkTask>("buildXCFramework") {
-    dependsOn(
-        "linkReleaseFrameworkIosArm64",
-        "linkReleaseFrameworkIosSimulatorArm64"
-    )
+    dependsOn("fixBundleIdentifier")
 
     val frameworkNameValue = "KotlinMultiplatformLibrary"
     val buildDir = layout.buildDirectory.get().asFile
