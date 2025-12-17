@@ -17,7 +17,7 @@ class DateConverterTest {
         val actual = DateConverter().formatToString(
             value = value,
             nullValue = "--月--日",
-            format = DateFormat.DJp
+            format = DateFormat.Djp
         )
 
         // assert
@@ -36,7 +36,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().formatToString(
             value = value,
-            format = DateFormat.HJp
+            format = DateFormat.Hjp
         )
 
         // assert
@@ -55,7 +55,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().formatToString(
             value = value,
-            format = DateFormat.HMJp
+            format = DateFormat.HmJp
         )
 
         // assert
@@ -74,7 +74,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().formatToString(
             value = value,
-            format = DateFormat.DJp
+            format = DateFormat.Djp
         )
 
         // assert
@@ -93,7 +93,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().formatToString(
             value = value,
-            format = DateFormat.MJp
+            format = DateFormat.Mjp
         )
 
         // assert
@@ -112,7 +112,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().formatToString(
             value = value,
-            format = DateFormat.MDJp
+            format = DateFormat.MdJp
         )
 
         // assert
@@ -131,7 +131,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().formatToString(
             value = value,
-            format = DateFormat.YJp
+            format = DateFormat.Yjp
         )
 
         // assert
@@ -150,7 +150,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().formatToString(
             value = value,
-            format = DateFormat.YMDJp
+            format = DateFormat.YmdJp
         )
 
         // assert
@@ -169,7 +169,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().formatToString(
             value = value,
-            format = DateFormat.MDEHmsJp
+            format = DateFormat.MdehmsJp
         )
 
         // assert
@@ -188,7 +188,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().epochToString(
             epoch = value,
-            format = DateFormat.HJp
+            format = DateFormat.Hjp
         )
 
         // assert
@@ -207,7 +207,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().epochToString(
             epoch = value,
-            format = DateFormat.HMJp
+            format = DateFormat.HmJp
         )
 
         // assert
@@ -226,7 +226,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().epochToString(
             epoch = value,
-            format = DateFormat.DJp
+            format = DateFormat.Djp
         )
 
         // assert
@@ -245,7 +245,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().epochToString(
             epoch = value,
-            format = DateFormat.MJp
+            format = DateFormat.Mjp
         )
 
         // assert
@@ -264,7 +264,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().epochToString(
             epoch = value,
-            format = DateFormat.MDJp
+            format = DateFormat.MdJp
         )
 
         // assert
@@ -283,7 +283,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().epochToString(
             epoch = value,
-            format = DateFormat.YJp
+            format = DateFormat.Yjp
         )
 
         // assert
@@ -302,7 +302,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().epochToString(
             epoch = value,
-            format = DateFormat.MDEHmsJp
+            format = DateFormat.MdehmsJp
         )
 
         // assert
@@ -321,7 +321,7 @@ class DateConverterTest {
         // act
         val actual = DateConverter().epochToString(
             epoch = value,
-            format = DateFormat.YMDJp
+            format = DateFormat.YmdJp
         )
 
         // assert

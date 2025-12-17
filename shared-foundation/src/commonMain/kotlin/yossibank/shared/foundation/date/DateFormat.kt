@@ -158,13 +158,13 @@ enum class DatePartiallyFormat(val formatter: DateTimeFormat<LocalDate>) {
 }
 
 enum class DateFormat(val formatter: DateTimeFormat<LocalDateTime>) {
-    HJp(
+    Hjp(
         LocalDateTime.Format {
             hour(Padding.NONE)
             chars("時")
         }
     ),
-    HMJp(
+    HmJp(
         LocalDateTime.Format {
             hour(Padding.NONE)
             chars("時")
@@ -172,19 +172,19 @@ enum class DateFormat(val formatter: DateTimeFormat<LocalDateTime>) {
             chars("分")
         }
     ),
-    DJp(
+    Djp(
         LocalDateTime.Format {
             day(Padding.NONE)
             chars("日")
         }
     ),
-    MJp(
+    Mjp(
         LocalDateTime.Format {
             monthNumber(Padding.NONE)
             chars("月")
         }
     ),
-    MDJp(
+    MdJp(
         LocalDateTime.Format {
             monthNumber(Padding.NONE)
             chars("月")
@@ -192,13 +192,13 @@ enum class DateFormat(val formatter: DateTimeFormat<LocalDateTime>) {
             chars("日")
         }
     ),
-    YJp(
+    Yjp(
         LocalDateTime.Format {
             year(Padding.NONE)
             chars("年")
         }
     ),
-    YMDJp(
+    YmdJp(
         LocalDateTime.Format {
             year(Padding.NONE)
             chars("年")
@@ -208,7 +208,7 @@ enum class DateFormat(val formatter: DateTimeFormat<LocalDateTime>) {
             chars("日")
         }
     ),
-    MDEHmsJp(
+    MdehmsJp(
         LocalDateTime.Format {
             monthNumber(Padding.NONE)
             chars("/")
