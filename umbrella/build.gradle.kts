@@ -25,6 +25,7 @@ kotlin {
         it.binaries.framework {
             baseName = "KotlinMultiplatformLibrary"
             isStatic = true
+            export(project(":shared-data"))
             export(project(":shared-foundation"))
         }
     }
@@ -32,6 +33,7 @@ kotlin {
     sourceSets {
         commonMain {
             dependencies {
+                api(project(":shared-data"))
                 api(project(":shared-foundation"))
             }
         }

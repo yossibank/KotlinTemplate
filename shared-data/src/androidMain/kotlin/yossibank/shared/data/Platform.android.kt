@@ -1,0 +1,1 @@
+package yossibank.shared.data

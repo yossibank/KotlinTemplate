@@ -31,6 +31,9 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.example.kotlintemplate.data.api.ApiRepositoryInterface
 import com.example.kotlintemplate.data.api.FakeApiRepository
+import yossibank.shared.foundation.value.ValueFormatter
+import yossibank.shared.foundation.value.ValueStyle
+import yossibank.shared.foundation.value.ValueSuffix
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -110,7 +113,9 @@ fun RakutenScreen(
                                         fontWeight = FontWeight.Bold
                                     )
                                     Text(
-                                        text = "¥${item.itemPrice}",
+                                        text = ValueFormatter(value = item.itemPrice.toDouble()).format(
+                                            style = ValueStyle(suffix = ValueSuffix.Yen)
+                                        ),
                                         color = Color.Red,
                                         fontSize = 16.sp,
                                         fontWeight = FontWeight.Bold

@@ -21,5 +21,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "KotlinTemplate"
 include(":app")
+include(":shared-data")
 include(":shared-foundation")
 include(":umbrella")
